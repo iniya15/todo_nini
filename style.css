@@ -1,0 +1,131 @@
+:root {
+  --purple: #a78bfa;
+  --purple-soft: rgba(167, 139, 250, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Saira', system-ui, sans-serif;
+  background: #121212;
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Sparkles background */
+.sparkles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sparkles span {
+  position: absolute;
+  bottom: 0;
+  font-size: 14px;
+  color: var(--purple);
+  opacity: 0.4;
+  animation: floatUp 12s linear infinite;
+}
+
+.sparkles span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.sparkles span:nth-child(2) { left: 30%; animation-delay: 3s; }
+.sparkles span:nth-child(3) { left: 50%; animation-delay: 6s; }
+.sparkles span:nth-child(4) { left: 70%; animation-delay: 1s; }
+.sparkles span:nth-child(5) { left: 90%; animation-delay: 4s; }
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.4;
+  }
+  to {
+    transform: translateY(-110vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* App card */
+.app {
+  width: 90%;
+  max-width: 380px;
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.4),
+    0 0 40px var(--purple-soft);
+  z-index: 1;
+}
+
+h2 {
+  font-size: 1rem;
+  opacity: 0.7;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.input-box {
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: #2a2a2a;
+  color: #fff;
+}
+
+input::placeholder {
+  color: #888;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--purple-soft);
+}
+
+button {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: var(--purple);
+  color: #0f0f0f;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 16px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #262626;
+  padding: 10px 12px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--purple);
+  transform: scale(1.2);
+}
