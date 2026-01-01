@@ -15,6 +15,7 @@ function saveTasks() {
 
 dateText.textContent = new Date().toDateString();
 
+/* Weekly cleanup + rollover */
 function maintainTasks() {
   const todayDate = today();
   const oneWeekAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
@@ -40,6 +41,9 @@ function renderTasks() {
     .forEach(task => {
       const li = document.createElement("li");
 
+      const textSpan = document.createElement("span");
+      textSpan.textContent = task.text;
+
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
       checkbox.checked = task.done;
@@ -50,8 +54,8 @@ function renderTasks() {
         renderTasks();
       };
 
+      li.appendChild(textSpan);
       li.appendChild(checkbox);
-      li.appendChild(document.createTextNode(task.text));
       taskList.appendChild(li);
     });
 }
@@ -79,7 +83,7 @@ if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("service-worker.js");
 }
 
-/* Notifications permission */
+/* Notifications */
 if ("Notification" in window && Notification.permission !== "granted") {
   Notification.requestPermission();
 }

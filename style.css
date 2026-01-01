@@ -19,7 +19,7 @@ body {
   overflow: hidden;
 }
 
-/* Sparkles background */
+/* Sparkles */
 .sparkles {
   position: fixed;
   inset: 0;
@@ -115,14 +115,19 @@ ul {
   margin-top: 16px;
 }
 
+/* ✅ Correct alignment: text left, checkbox right */
 li {
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: space-between;
   background: #262626;
   padding: 10px 12px;
   border-radius: 12px;
   margin-bottom: 10px;
+}
+
+li span {
+  flex: 1;
 }
 
 input[type="checkbox"] {
